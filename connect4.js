@@ -11,12 +11,22 @@ const HEIGHT = 6;
 let currPlayer = 1; // active player: 1 or 2
 const board = []; // array of rows, each row is array of cells  (board[y][x])
 
+const playerBanner = document.getElementById("playerBanner");
+const newGameBtn = document.getElementById("newGame");
+newGameBtn.addEventListener("click", newGame);
+let p1Wins = 0;
+let p2Wins = 0;
+const winCounter = document.getElementById("winCounter");
+
 /** makeBoard: create in-JS board structure:
  *    board = array of rows, each row is array of cells  (board[y][x])
  */
 
 function makeBoard() {
   // TODO: set "board" to empty HEIGHT x WIDTH matrix array
+  while(board.length){
+    board.pop();
+  }
 
   for (let y = 0; y < HEIGHT; y++){
     const curY = [];
@@ -37,7 +47,7 @@ function makeHtmlBoard() {
   // create row as tr element, Add event listener to entire row
   const top = document.createElement("tr");
   top.setAttribute("id", "column-top");
-  top.addEventListener("click", handleClick);
+  // top.addEventListener("click", handleClick);
 
   // create cell for each row as td element, add each cell to row
   // once every cell is added, add row to the dom as a child of the board
@@ -61,6 +71,11 @@ function makeHtmlBoard() {
     }
     htmlBoard.append(row);
   }
+}
+
+function clearHtmlBoard() {
+  const pieces = document.querySelectorAll(".piece");
+  pieces.forEach((piece) => (piece.remove()))
 }
 
 /** findSpotForCol: given column x, return top empty y (null if filled) */
@@ -116,16 +131,23 @@ function handleClick(evt) {
   // check for win
   setTimeout(() => {
     if (checkForWin()) {
+      currPlayer == 1 ? p1Wins++ : p2Wins++;
+      winCounter.innerHTML = `<h1>Wins:</h1><h2>Player 1: ${p1Wins}    Player 2: ${p2Wins}</h2>`
       return endGame(`Player ${currPlayer} won!`);
+    }
+    if(checkForTie()) {
+      return endGame("It's a tie!");
     }
     top.addEventListener("click", handleClick);
     currPlayer = (currPlayer == 1 ? 2 : 1);
+    playerBanner.innerText = `It is Player ${currPlayer}'s turn.`;
   }, 200);
-
+}
   // check for tie
   // TODO: check if all cells in board are filled; if so call, call endGame
 
-  
+  function checkForTie(){
+    return board.flat().every((item) => (item!=null));
 }
 
 /** checkForWin: check board cell-by-cell for "does a win start here?" */
@@ -166,6 +188,14 @@ function checkForWin() {
     }
   }
 }
-
-makeBoard();
+function newGame(){
+  const top = document.getElementById('column-top');
+  makeBoard();
+  clearHtmlBoard();
+  currPlayer = 1;
+  playerBanner.innerText = `It is Player ${currPlayer}'s turn.`;
+  winCounter.innerHTML = `<h1>Wins:</h1><h2>Player 1: ${p1Wins}    Player 2: ${p2Wins}</h2>`
+  top.addEventListener("click", handleClick);
+}
 makeHtmlBoard();
+newGame();

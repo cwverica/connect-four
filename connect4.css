@@ -33,6 +33,55 @@
 	background-color: gold;
 }
 
+#wrapper {
+	display: grid;
+	grid-template-columns: 100px auto 100px;
+	grid-template-rows: 50px 100px auto 150px;
+}
+
+#game {
+	grid-column: 2;
+	grid-row: 3;
+	justify-self: center;
+}
+
+#labels {
+	grid-column: 1/4;
+	grid-row: 2;
+}
+
+#winCounter {
+	justify-self: right;
+	font-size: 20px;
+}
+
+#winCounter h2 {
+	display: inline;
+	font-size: 25px;
+}
+
+#winCounter h1 {
+	display: inline;
+}
+
+#playerBanner {
+	font-size: 25px;
+}
+
+#buttons {
+	justify-self: center;
+	align-self: end;
+	grid-column: 1;
+	grid-row: 4;
+}
+
+#newGame {
+	justify-self: center;
+	align-self: end;
+}
+
+/* ********************************************************************** */
+
 .animated5 {
 	animation-duration: .54s;
 	animation-fill-mode: both;
