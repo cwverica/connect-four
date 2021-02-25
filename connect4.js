@@ -132,7 +132,7 @@ function handleClick(evt) {
   setTimeout(() => {
     if (checkForWin()) {
       currPlayer == 1 ? p1Wins++ : p2Wins++;
-      winCounter.innerHTML = `<h1>Wins:</h1><h2>Player 1: ${p1Wins}    Player 2: ${p2Wins}</h2>`
+      winCounter.innerHTML = `<h1>Wins:</h1><h2 class="p1">Player 1</h2>: <h2>${p1Wins}    </h2><h2 class="p2">Player 2</h2><h2>: ${p2Wins}</h2>`
       return endGame(`Player ${currPlayer} won!`);
     }
     if(checkForTie()) {
@@ -194,7 +194,7 @@ function newGame(){
   clearHtmlBoard();
   currPlayer = 1;
   playerBanner.innerText = `It is Player ${currPlayer}'s turn.`;
-  winCounter.innerHTML = `<h1>Wins:</h1><h2>Player 1: ${p1Wins}    Player 2: ${p2Wins}</h2>`
+  winCounter.innerHTML = `<h1>Wins:</h1><h2 class="p1">Player 1</h2>: <h2>${p1Wins}    </h2><h2 class="p2">Player 2</h2><h2>: ${p2Wins}</h2>`
   top.addEventListener("click", handleClick);
 }
 makeHtmlBoard();
