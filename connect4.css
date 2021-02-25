@@ -1,0 +1,184 @@
+/* game board table */
+
+#board td {
+	width: 50px;
+	height: 50px;
+	border: solid 1px #666;
+}
+
+/* pieces are div within game table cells: draw as colored circles */
+
+.piece {
+	margin: 5px;
+	width: 80%;
+	height: 80%;
+	border-radius: 100%;
+}
+
+.p1 {
+	background-color: red;
+}
+
+.p2 {
+	background-color: blue;
+}
+
+/* column-top is table row of clickable areas for each column */
+
+#column-top td {
+	border: dashed 1px lightgray;
+}
+
+#column-top td:hover {
+	background-color: gold;
+}
+
+.animated5 {
+	animation-duration: .54s;
+	animation-fill-mode: both;
+	animation-timing-function: ease-in;
+}
+
+@keyframes bounceInDown5 {
+	0% {
+		transform: translateY(-300px);
+	}
+	60% {
+		transform: translateY(0px);
+	}
+	80% {
+		transform: translateY(-30px);
+	}
+	100% {
+		transform: translateY(0);
+	}
+}
+
+.bounceInDown5 {
+	animation-name: bounceInDown5;
+}
+
+.animated4 {
+	animation-duration: .46s;
+	animation-fill-mode: both;
+	animation-timing-function: ease-in;
+}
+
+@keyframes bounceInDown4 {
+	0% {
+		transform: translateY(-250px);
+	}
+	60% {
+		transform: translateY(0px);
+	}
+	80% {
+		transform: translateY(-25px);
+	}
+	100% {
+		transform: translateY(0);
+	}
+}
+
+.bounceInDown4 {
+	animation-name: bounceInDown4;
+}
+
+.animated3 {
+	animation-duration: .38s;
+	animation-fill-mode: both;
+	animation-timing-function: ease-in;
+}
+
+@keyframes bounceInDown3 {
+	0% {
+		transform: translateY(-200px);
+	}
+	60% {
+		transform: translateY(0px);
+	}
+	80% {
+		transform: translateY(-20px);
+	}
+	100% {
+		transform: translateY(0);
+	}
+}
+
+.bounceInDown3 {
+	animation-name: bounceInDown3;
+}
+
+.animated2 {
+	animation-duration: .29s;
+	animation-fill-mode: both;
+	animation-timing-function: ease-in;
+}
+
+@keyframes bounceInDown2 {
+	0% {
+		transform: translateY(-150px);
+	}
+	60% {
+		transform: translateY(0px);
+	}
+	80% {
+		transform: translateY(-15px);
+	}
+	100% {
+		transform: translateY(0);
+	}
+}
+
+.bounceInDown2 {
+	animation-name: bounceInDown2;
+}
+
+.animated1 {
+	animation-duration: .2s;
+	animation-fill-mode: both;
+	animation-timing-function: ease-in;
+}
+
+@keyframes bounceInDown1 {
+	0% {
+		transform: translateY(-100px);
+	}
+	60% {
+		transform: translateY(0px);
+	}
+	80% {
+		transform: translateY(-10px);
+	}
+	100% {
+		transform: translateY(0);
+	}
+}
+
+.bounceInDown1 {
+	animation-name: bounceInDown1;
+}
+
+.animated0 {
+	animation-duration: .1s;
+	animation-fill-mode: both;
+	animation-timing-function: ease-in;
+}
+
+@keyframes bounceInDown0 {
+	0% {
+		transform: translateY(-50px);
+	}
+	60% {
+		transform: translateY(0px);
+	}
+	80% {
+		transform: translateY(-5px);
+	}
+	100% {
+		transform: translateY(0);
+	}
+}
+
+.bounceInDown0 {
+	animation-name: bounceInDown0;
+}
